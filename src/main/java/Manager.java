@@ -1,14 +1,26 @@
-public class Manager extends Employee implements IDiscountable{
+public  class Manager extends Employee implements IDiscountable{
 
-   private final double discount = .25;
+   private final double DISCOUNT = 0.25;
 
-    public Manager(String name, char size) {
-        super(name, size);
+    public Manager(String name, Clothing[] clothing, char size) {
+        super(name, clothing, size);
+    }
+
+    public double getDiscount(){
+        return DISCOUNT;
     }
 
     @Override
-    public double calcDiscount(Clothing clothing) {
-        return 0;
+    void printEmpPriceAfterDic(Clothing clothing) {
+        System.out.println(clothing.getPrice() - calcDiscount(clothing));
     }
+
+
+    @Override
+    public double calcDiscount(Clothing clothing) {
+        return clothing.getPrice() * DISCOUNT;
+    }
+
+
 
 }

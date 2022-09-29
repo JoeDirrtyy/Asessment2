@@ -1,13 +1,16 @@
-public class Employee extends Customer {
-    private final double discount = .10;
+public abstract class Employee extends Customer {
+    private final double DISCOUNT = 0.10;
 
-    public Employee(String name, char size) {
-        super(name, size);
+    public Employee(String name, Clothing[] clothing, char size) {
+        super(name, clothing, size);
     }
+
+
 
     public double getDiscount() {
-        return discount;
+        return DISCOUNT;
     }
+    abstract void printEmpPriceAfterDic(Clothing clothing);
 
 
 }
